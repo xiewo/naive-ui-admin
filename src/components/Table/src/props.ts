@@ -43,7 +43,7 @@ export const basicProps = {
   },
   pagination: {
     type: [Object, Boolean],
-    default: () => { },
+    default: () => {},
   },
   //废弃
   showPagination: {
@@ -56,4 +56,5 @@ export const basicProps = {
   },
   canResize: propTypes.bool.def(true),
   resizeHeightOffset: propTypes.number.def(0),
+  striped: propTypes.bool.def(false),
 };

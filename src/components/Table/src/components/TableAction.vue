@@ -2,7 +2,12 @@
   <div class="tableAction">
     <div class="flex items-center justify-center">
       <template v-for="(action, index) in getActions" :key="`${index}-${action.label}`">
-        <n-button v-bind="action" class="mx-2">{{ action.label }}</n-button>
+        <n-button v-bind="action" class="mx-1">
+          {{ action.label }}
+          <template #icon v-if="action.hasOwnProperty('icon')">
+            <n-icon :component="action.icon" />
+          </template>
+        </n-button>
       </template>
       <n-dropdown
         v-if="dropDownActions && getDropdownList.length"
@@ -11,7 +16,7 @@
         @select="select"
       >
         <slot name="more"></slot>
-        <n-button v-bind="getMoreProps" class="mx-2" v-if="!$slots.more" icon-placement="right">
+        <n-button v-bind="getMoreProps" class="mx-1" v-if="!$slots.more" icon-placement="right">
           <div class="flex items-center">
             <span>更多</span>
             <n-icon size="14" class="ml-1">

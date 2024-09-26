@@ -31,6 +31,7 @@
           v-if="imgList.length < maxNumber"
         >
           <n-upload
+            class="w-auto"
             v-bind="$props"
             :file-list-style="{ display: 'none' }"
             @before-upload="beforeUpload"
@@ -112,7 +113,8 @@
           state.imgList = props.value.map((item) => {
             return getImgUrl(item);
           });
-        }
+        },
+        { immediate: true }
       );
 
       //预览
@@ -236,6 +238,7 @@
         &-info {
           position: relative;
           height: 100%;
+          width: 100%;
           padding: 0;
           overflow: hidden;
 

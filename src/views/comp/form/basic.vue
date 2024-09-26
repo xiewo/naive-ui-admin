@@ -23,10 +23,10 @@
 </template>
 
 <script lang="ts" setup>
-  import { BasicForm } from '@/components/Form/index';
+  import { BasicForm, FormSchema } from '@/components/Form/index';
   import { useMessage } from 'naive-ui';
 
-  const schemas = [
+  const schemas: FormSchema[] = [
     {
       field: 'name',
       component: 'NInput',
@@ -153,6 +153,9 @@
   const message = useMessage();
 
   function handleSubmit(values: Recordable) {
+    if (!values) {
+      return message.error('请填写完整信息');
+    }
     console.log(values);
     message.success(JSON.stringify(values));
   }

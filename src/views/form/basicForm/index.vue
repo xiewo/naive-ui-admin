@@ -9,14 +9,14 @@
       <n-grid cols="1 s:1 m:3 l:3 xl:3 2xl:3" responsive="screen">
         <n-grid-item offset="0 s:0 m:1 l:1 xl:1 2xl:1">
           <n-form
-            :label-width="80"
+            :label-width="90"
             :model="formValue"
             :rules="rules"
             label-placement="left"
             ref="formRef"
             class="py-8"
           >
-            <n-form-item label="预约姓名1" path="name">
+            <n-form-item label="预约姓名" path="name">
               <n-input v-model:value="formValue.name" placeholder="输入姓名" />
             </n-form-item>
             <n-form-item label="预约号码" path="mobile">
@@ -63,7 +63,7 @@
                 name="files"
                 :width="100"
                 :height="100"
-                @uploadChange="uploadChange"
+                @upload-change="uploadChange"
                 v-model:value="uploadList"
                 helpText="单个文件不超过20MB，最多只能上传10个文件"
               />
